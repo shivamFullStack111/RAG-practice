@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@google/genai": "^1.40.0",
+    "chromadb": "^3.3.0",
     "dotenv": "^17.2.4",
     "openai": "^6.21.0"
   }

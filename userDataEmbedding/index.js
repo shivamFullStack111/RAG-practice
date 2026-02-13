@@ -3,8 +3,6 @@ import fs, { readFileSync, writeFileSync } from "fs";
 import env from "dotenv";
 import path from "path";
 
-
-
 env.config({
   path: "../.env",
 });
@@ -15,9 +13,7 @@ const ai = new GoogleGenAI({
 
 // use this function when need to convert data to embeddings and store in file after you can search similarity by asking question
 async function generateEmbeddingsForData() {
-  const data = JSON.parse(
-    readFileSync("data.json", "utf-8"),
-  );
+  const data = JSON.parse(readFileSync("data.json", "utf-8"));
   console.log(data);
 
   const response = await ai.models.embedContent({
@@ -30,15 +26,11 @@ async function generateEmbeddingsForData() {
     values: item.values,
   }));
 
-  writeFileSync(
-    "embeddings.json",
-    JSON.stringify(keyData, null, 2),
-  );
+  writeFileSync("embeddings.json", JSON.stringify(keyData, null, 2));
 }
 
 // generate embedding of user input text that user asked
 async function generateEmbeddings(text) {
-
   const response = await ai.models.embedContent({
     model: "gemini-embedding-001",
     contents: text,
@@ -49,9 +41,7 @@ async function generateEmbeddings(text) {
 // find similarity from embedding data json file
 function findSimilarity(textEmbedding) {
   let similarities = [];
-  const data = JSON.parse(
-    fs.readFileSync("embeddings.json"),
-  );
+  const data = JSON.parse(fs.readFileSync("embeddings.json"));
 
   data.forEach((item, index) => {
     let currentTotal = 0;
