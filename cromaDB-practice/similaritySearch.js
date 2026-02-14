@@ -25,7 +25,7 @@ async function main(searchText) {
     contents: searchText,
   });
 
-  console.log(res.embeddings[0].values);
+    console.log(res.embeddings[0].values);
 
   const result = await userData.query({
     queryEmbeddings: [res.embeddings[0].values],
