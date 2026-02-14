@@ -12,7 +12,7 @@ const ai = new GoogleGenAI({
 });
 
 const client = new CloudClient({
-  apiKey: "ck-7b3nAiFuQA6wcNyTcxcx5JrsjNaFxbX9GjekEcaJJZ6Y",
+  apiKey:process.env.CROMADB_API_KEY,
   tenant: "eaa3776a-db41-4d0e-a6da-def192620f3d",
   database: "testing",
 });
