@@ -6,7 +6,7 @@ dotenv.config({
 });
 
 const model = new DallEAPIWrapper({
-  apiKey: process.env.OPENAI_API,
+  apiKey: process.env.OPENAI_API_KEY,
   model: "dall-e-3",
   n: 1,
 });
