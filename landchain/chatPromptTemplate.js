@@ -12,14 +12,20 @@ const model = new ChatGroq({
 });
 
 const promt = ChatPromptTemplate.fromMessages([
-  ["system", "explain topics in english within 20 words"],
-  ["human", "tell me about {topic} with example"],
+  [
+    "system",
+    "explain topics in english within {words} words give answer in braces",
+  ],
+  ["human", "tell me about {topic} with example"], // in braces {} topic is variable
 ]);
 
-const formatPromt = await promt.formatMessages({
+const formatPromt = await promt.format({
   topic: "how to choose college",
+  words: 30,
 });
+
+console.log("FORMATMESSAE: ", formatPromt, "\n \n");
 
 const response = await model.invoke(formatPromt);
 
-console.log(response.content);
+console.log("RESPONSE", response.content, "\n \n");
