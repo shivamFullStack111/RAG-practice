@@ -12,7 +12,7 @@ const ai = new GoogleGenAI({
 });
 
 const client = new CloudClient({
-  apiKey:process.env.CROMADB_API_KEY,
+  apiKey: process.env.CROMADB_API_KEY,
   tenant: "eaa3776a-db41-4d0e-a6da-def192620f3d",
   database: "testing",
 });
@@ -24,8 +24,6 @@ async function main(searchText) {
     model: "gemini-embedding-001",
     contents: searchText,
   });
-
-    console.log(res.embeddings[0].values);
 
   const result = await userData.query({
     queryEmbeddings: [res.embeddings[0].values],
