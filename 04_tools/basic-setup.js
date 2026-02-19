@@ -10,6 +10,7 @@ const groq = new Groq({
   maxRetries: 2,
 });
 
+
 /* ---------------- TOOL FUNCTION ---------------- */
 
 const get_employee_contact = (employee_id) => {
