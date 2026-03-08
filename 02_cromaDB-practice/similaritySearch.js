@@ -20,11 +20,13 @@ const client = new CloudClient({
 async function main(searchText) {
   const userData = await client.getOrCreateCollection({ name: "userData" });
 
+  // generating embeddings of user search question
   const res = await ai.models.embedContent({
     model: "gemini-embedding-001",
     contents: searchText,
   });
 
+  // finding similarities search from cromaDB collection "userData"
   const result = await userData.query({
     queryEmbeddings: [res.embeddings[0].values],
     nResults: 4,
