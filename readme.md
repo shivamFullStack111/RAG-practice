@@ -1,12 +1,10 @@
-***create .env file in roo***
+### Create a `.env` file in the root directory
 
-_add env variables_
+Add the following environment variables:
 
-
----env
-GEMINI_API=
-CROMADB_API_KEY=
+```env
+GEMINI_API_KEY=
+CHROMADB_API_KEY=
 GROQ_API_KEY=
 OPENAI_API_KEY=
 TAVILY_API_KEY=
----
